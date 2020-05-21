@@ -25,7 +25,6 @@ variables:
 pool:
   vmImage: 'vs2017-win2016'
  
-#COLOR PICKER
  
 steps:
 #Run npm install to get all required resources for the projectl
@@ -58,8 +57,8 @@ steps:
 #GitHub Release
 - task: GitHubRelease@1
   inputs:
-    gitHubConnection: 'github.com_rwilson504'
-    repositoryName: 'rwilson504/PCFControls'
+    gitHubConnection: 'github.com_powerappsdev'
+    repositoryName: 'powerappsdev/CDSEnvironmentURL'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
