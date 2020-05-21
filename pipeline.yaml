@@ -57,7 +57,7 @@ steps:
 #GitHub Release
 - task: GitHubRelease@1
   inputs:
-    gitHubConnection: 'github.com_powerappsdev'
+    gitHubConnection: 'powerappsdev'
     repositoryName: 'powerappsdev/CDSEnvironmentURL'
     action: 'create'
     target: '$(Build.SourceVersion)'
