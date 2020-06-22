@@ -43,7 +43,7 @@ steps:
 #Copy the solution files to the build artifacts directory.
 - task: CopyFiles@2
   inputs:
-    SourceFolder: './CDSEnvironmentUrl/CDSEnvironmentUrl/CDSEnvironmentUrlControl/bin/Release/'
+    SourceFolder: './CDSEnvironmentUrl/CDSEnvironmentUrlControl/bin/Release/'
     Contents: 'CDSEnvironmentUrlControl_managed.zip'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
  
