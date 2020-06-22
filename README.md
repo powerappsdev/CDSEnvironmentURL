@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/powerapps365dev/CDSEnvironmentUrl/_apis/build/status/powerappsdev.CDSEnvironmentURL?branchName=master)](https://dev.azure.com/powerapps365dev/CDSEnvironmentUrl/_build/latest?definitionId=1&branchName=master)
+
 # CDSEnvironmentURL
 
 This is a very simple control that allows you to get the URL for the app's CDS environment inside of a canvas app. You can then use this URL in a variety of ways. For exmaple, you could create links back to the entity's form for the given record. 
