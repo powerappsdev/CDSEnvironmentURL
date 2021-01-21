@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="PAD" constructor="CDSEnvironmentUrl" version="0.0.10" display-name-key="PowerAppsDev CDS Environment URL" description-key="CDSEnvironmentUrl will provide an output property that contains the CDS Environment URL of the control to which it is bound" control-type="standard">
+  <control namespace="PAD" constructor="CDSEnvironmentUrl" version="0.0.13" display-name-key="PowerAppsDev CDS Environment URL" description-key="CDSEnvironmentUrl will provide an output property that contains the CDS Environment URL of the control to which it is bound" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="cdsEnvironmentUrl" display-name-key="(Output) CDS Environment URL" description-key="This property will contain the CDS URL for the control's environment" usage="output" of-type="SingleLine.Text" required="false" />
+    <property name="cdsEnvironmentUrl" display-name-key="(Output) CDS Environment URL" description-key="This property will contain the CDS URL for the controls environment" usage="output" of-type="SingleLine.Text" required="false" />
     <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:

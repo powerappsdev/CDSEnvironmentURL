@@ -4,7 +4,8 @@ export class CDSEnvironmentUrl implements ComponentFramework.StandardControl<IIn
 	
 	private cdsEnvironmentUrl: string;
 	private notifyOutputChanged: Function;
-	
+	private _updateFromOutput: boolean;
+
 	/**
 	 * Empty constructor.
 	 */
@@ -26,6 +27,7 @@ export class CDSEnvironmentUrl implements ComponentFramework.StandardControl<IIn
 	{
 		// Add control initialization code
 		this.notifyOutputChanged = notifyOutputChanged;
+		this._updateFromOutput = false;
 	}
 
 
@@ -35,9 +37,21 @@ export class CDSEnvironmentUrl implements ComponentFramework.StandardControl<IIn
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
+		if (this._updateFromOutput){
+			this._updateFromOutput = false;
+			return;
+		}
+
 		// Add code to update control view
-		this.cdsEnvironmentUrl = this.getCdsEnvironmentUrl();
-		this.notifyOutputChanged();
+		let environmentUrl = this.getCdsEnvironmentUrl();
+		
+		//only send the output from the control if the environment url is available
+		// and it has not already been sent to the output.  This will ensure that the url
+		// does not fire the onchange multiple times for this control.
+		if (environmentUrl && environmentUrl !== this.cdsEnvironmentUrl) {
+			this.cdsEnvironmentUrl = environmentUrl;			
+			this.notifyOutputChanged();
+		}
 	}
 
 	/** 
@@ -46,6 +60,8 @@ export class CDSEnvironmentUrl implements ComponentFramework.StandardControl<IIn
 	 */
 	public getOutputs(): IOutputs
 	{
+		this._updateFromOutput = true;
+
 		return {
 			cdsEnvironmentUrl: this.cdsEnvironmentUrl
 		};
@@ -67,7 +83,7 @@ export class CDSEnvironmentUrl implements ComponentFramework.StandardControl<IIn
 			return result;
 		}
 
-		// posibly no _r9, find the object since MS got squirmy
+		// possibly no _r9, find the object since MS got squirmy
 		result = this.getCdsEnvironmentUrlFromSearchingForCdsDataSourceConfigs();
 
 		if (result?.length){
